@@ -1,0 +1,2767 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["javascript","php","python","bash"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                                  <a href="#" data-language-name="php">php</a>
+                                  <a href="#" data-language-name="python">python</a>
+                                  <a href="#" data-language-name="bash">bash</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference.
+<a href="http://curve-app.co/docs/collection.json">Get Postman Collection</a></p>
+<!-- END_INFO -->
+<h1>Driver Mobile API</h1>
+<p>Orders
+this api will return the list of orders in process</p>
+<!-- START_8f84a574765c547365e6dc7ddbfe763a -->
+<h2>Driver Login</h2>
+<p>use this api to login a driver by mobile and password
+will generate jwt token you can use it in Authrization header with prefixed with Bearer</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+let body = {
+    "mobile": "1234567890",
+    "password": "123456"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/login',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+        'json' =&gt; [
+            'mobile' =&gt; '1234567890',
+            'password' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/login'
+payload = {
+    "mobile": "1234567890",
+    "password": "123456"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}" \
+    -d '{"mobile":"1234567890","password":"123456"}'
+</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/login</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mobile</code></td>
+<td>string</td>
+<td>required</td>
+<td>the Driver mobile</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>required</td>
+<td>the Driver password</td>
+</tr>
+</tbody>
+</table>
+<!-- END_8f84a574765c547365e6dc7ddbfe763a -->
+<!-- START_758c5ce4b6de7437277c2d4b3b90b245 -->
+<h2>Driver register</h2>
+<p>use this api to register a driver by mobile and password</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+let body = {
+    "mobile": "1234567890",
+    "email": "example@example.com",
+    "password": "123456"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/register',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+        'json' =&gt; [
+            'mobile' =&gt; '1234567890',
+            'email' =&gt; 'example@example.com',
+            'password' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/register'
+payload = {
+    "mobile": "1234567890",
+    "email": "example@example.com",
+    "password": "123456"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/register" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}" \
+    -d '{"mobile":"1234567890","email":"example@example.com","password":"123456"}'
+</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/register</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mobile</code></td>
+<td>string</td>
+<td>required</td>
+<td>the Driver mobile</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>the Driver password</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>required</td>
+<td>the Driver password</td>
+</tr>
+</tbody>
+</table>
+<!-- END_758c5ce4b6de7437277c2d4b3b90b245 -->
+<!-- START_1c3d612621f3e76e04ad440713148b87 -->
+<h2>Companies</h2>
+<p>use this api to git all Companies</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/companies"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://curve-app.co/api/driver/companies',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/companies'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://curve-app.co/api/driver/companies" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">[
+    "SQLSTATE[08006] [7] could not connect to server: Connection refused\n\tIs the server running on host \"127.0.0.1\" and accepting\n\tTCP\/IP connections on port 5432? (SQL: select \"id\", \"company_name\" from \"users\" where \"menuroles\" = user and \"status\" = Active and \"users\".\"deleted_at\" is null)"
+]</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/driver/companies</code></p>
+<!-- END_1c3d612621f3e76e04ad440713148b87 -->
+<!-- START_f2d4d701eebd5bdf8b4728c03adfd827 -->
+<h2>Driver verification</h2>
+<p>use this api to register a driver by mobile and password</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/verification"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+let body = {
+    "id": "1",
+    "code": "123456"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/verification',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+        'json' =&gt; [
+            'id' =&gt; '1',
+            'code' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/verification'
+payload = {
+    "id": "1",
+    "code": "123456"
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/verification" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}" \
+    -d '{"id":"1","code":"123456"}'
+</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/verification</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>required</td>
+<td>the Driver id</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>string</td>
+<td>required</td>
+<td>the Driver verification_code</td>
+</tr>
+</tbody>
+</table>
+<!-- END_f2d4d701eebd5bdf8b4728c03adfd827 -->
+<!-- START_37ae2b2d4e2bed9b42d05b27f6fa95a5 -->
+<h2>new version</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/new-orders"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://curve-app.co/api/driver/new-orders',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/new-orders'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://curve-app.co/api/driver/new-orders" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Server Error"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/driver/new-orders</code></p>
+<!-- END_37ae2b2d4e2bed9b42d05b27f6fa95a5 -->
+<!-- START_0c736370d481d78592a5079e0f4a71af -->
+<h2>Orders</h2>
+<p>this api will return the list of orders in process</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/orders"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://curve-app.co/api/driver/orders',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/orders'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://curve-app.co/api/driver/orders" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Error Token"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/driver/orders</code></p>
+<!-- END_0c736370d481d78592a5079e0f4a71af -->
+<!-- START_0302950466ec94e8ac11184bb43e9da7 -->
+<h2>Get an order details</h2>
+<p>this api will return the object of order details with products list
+send order_id as id parameter</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/order/molestiae"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://curve-app.co/api/driver/order/molestiae',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/order/molestiae'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://curve-app.co/api/driver/order/molestiae" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Error Token"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/driver/order/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+<td>int required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_0302950466ec94e8ac11184bb43e9da7 -->
+<!-- START_0223a2754d20cfaec5080fea12046853 -->
+<h2>Accept an order</h2>
+<p>use this api to make a driver accept an order
+send order_id as id parameter</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/acceptOrder/at"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/acceptOrder/at',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/acceptOrder/at'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/acceptOrder/at" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/acceptOrder/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+<td>int required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_0223a2754d20cfaec5080fea12046853 -->
+<!-- START_84e2ac4e6857a8b60a965330abb48814 -->
+<h2>Reject an order</h2>
+<p>use this api to make a driver accept an Reject
+send order_id as id parameter</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/rejectOrder/dolorum"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/rejectOrder/dolorum',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/rejectOrder/dolorum'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/rejectOrder/dolorum" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/rejectOrder/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+<td>int required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_84e2ac4e6857a8b60a965330abb48814 -->
+<!-- START_089294bc730cc0ac63ef73e5d22fcd97 -->
+<h2>Change order status</h2>
+<p>use this api to Change an order status
+send order_id as id parameter</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/changeStatus/aut"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/changeStatus/aut',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/changeStatus/aut'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/changeStatus/aut" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/changeStatus/{id}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>optional</td>
+<td>int required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_089294bc730cc0ac63ef73e5d22fcd97 -->
+<!-- START_f0e03ec9357862bbca601791abc47466 -->
+<h2>online status</h2>
+<p>use this api to refresh Auth token*</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/onlineStatus"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+let body = {
+    "status": "1 | 0."
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/onlineStatus',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+        'json' =&gt; [
+            'status' =&gt; '1 | 0.',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/onlineStatus'
+payload = {
+    "status": "1 | 0."
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/onlineStatus" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}" \
+    -d '{"status":"1 | 0."}'
+</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/onlineStatus</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>status</code></td>
+<td>string</td>
+<td>required</td>
+<td>current status</td>
+</tr>
+</tbody>
+</table>
+<!-- END_f0e03ec9357862bbca601791abc47466 -->
+<!-- START_5264cc4917b71d53794367fcfd00c95c -->
+<h2>OrderHistory</h2>
+<p>this api will return the list of orders finished its process</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/ordersHistory"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://curve-app.co/api/driver/ordersHistory',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/ordersHistory'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://curve-app.co/api/driver/ordersHistory" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Error Token"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/driver/ordersHistory</code></p>
+<!-- END_5264cc4917b71d53794367fcfd00c95c -->
+<!-- START_21a938459d5a877e1f331243d9387956 -->
+<h2>Refresh Token</h2>
+<p>use this api to refresh Auth token*</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/refreshToken"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://curve-app.co/api/driver/refreshToken',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/refreshToken'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://curve-app.co/api/driver/refreshToken" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Error Token"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/driver/refreshToken</code></p>
+<!-- END_21a938459d5a877e1f331243d9387956 -->
+<!-- START_fd6bbcc374ab24b420ba10b2ca81100b -->
+<h2>Install Notification Device</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/installNoteDevice"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/installNoteDevice',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/installNoteDevice'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/installNoteDevice" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/installNoteDevice</code></p>
+<!-- END_fd6bbcc374ab24b420ba10b2ca81100b -->
+<!-- START_c28bdb4ca84b11ebd32b89f76f04b1cd -->
+<h2>location now</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/locationNow"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/locationNow',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/locationNow'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/locationNow" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/locationNow</code></p>
+<!-- END_c28bdb4ca84b11ebd32b89f76f04b1cd -->
+<!-- START_80e20bcbfe8f031d55f688369baafe9d -->
+<h2>Wallet</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/wallet"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/wallet',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/wallet'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/wallet" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/wallet</code></p>
+<!-- END_80e20bcbfe8f031d55f688369baafe9d -->
+<!-- START_06edc045ff40a260189416bd30d978f9 -->
+<h2>Wallet transfer</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/walletPay"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+let body = {
+    "mobile": "05452343254",
+    "amount": 20
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/walletPay',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+        'json' =&gt; [
+            'mobile' =&gt; '05452343254',
+            'amount' =&gt; 20,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/walletPay'
+payload = {
+    "mobile": "05452343254",
+    "amount": 20
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/walletPay" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}" \
+    -d '{"mobile":"05452343254","amount":20}'
+</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/walletPay</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mobile</code></td>
+<td>string</td>
+<td>required</td>
+<td>the recipient fleet</td>
+</tr>
+<tr>
+<td><code>amount</code></td>
+<td>integer</td>
+<td>required</td>
+<td>the the amount he want to transfer</td>
+</tr>
+</tbody>
+</table>
+<!-- END_06edc045ff40a260189416bd30d978f9 -->
+<h1>Integration API</h1>
+<!-- START_28369bbffb8a4d93dcb425c88971dc43 -->
+<h2>Create an Order</h2>
+<p>use this API to send an order to Pudo control panel</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/agent/order/create"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "{API-KEY}",
+    "Api-Version": "v1",
+};
+
+let body = {
+    "api_id": "GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.",
+    "code": "342334.",
+    "number_of_products": 2,
+    "order_price": 40,
+    "discount": 0,
+    "deliver_fees": 10,
+    "total_price": 50,
+    "pick_up_lng": "21.24354345.",
+    "pick_up_lat": "21.24354345.",
+    "delivery_lng": "21.24354345.",
+    "delivery_lat": "22.134566566.",
+    "customer_name": "in",
+    "customer_mobile": "1234567890.",
+    "delivery_time": "2020-03-01 16:22:11.",
+    "products": "[{\"name\":\"product name\",\"one_piece_price\":20\",quantity\": 2,\"total_price\":4,\"note\":\"if any note or leave it null\"},{\"name\":\"product name\",\"one_piece_price\":20,\"quantity\": 2,\"total_price\":40,\"note\":\"if any note or leave it null\"}].",
+    "payment_method": "cash_on_delivery",
+    "fleet_id": 9
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/agent/order/create',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; '{API-KEY}',
+            'Api-Version' =&gt; 'v1',
+        ],
+        'json' =&gt; [
+            'api_id' =&gt; 'GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.',
+            'code' =&gt; '342334.',
+            'number_of_products' =&gt; 2,
+            'order_price' =&gt; 40.0,
+            'discount' =&gt; 0.0,
+            'deliver_fees' =&gt; 10.0,
+            'total_price' =&gt; 50.0,
+            'pick_up_lng' =&gt; '21.24354345.',
+            'pick_up_lat' =&gt; '21.24354345.',
+            'delivery_lng' =&gt; '21.24354345.',
+            'delivery_lat' =&gt; '22.134566566.',
+            'customer_name' =&gt; 'in',
+            'customer_mobile' =&gt; '1234567890.',
+            'delivery_time' =&gt; '2020-03-01 16:22:11.',
+            'products' =&gt; '[{"name":"product name","one_piece_price":20",quantity": 2,"total_price":4,"note":"if any note or leave it null"},{"name":"product name","one_piece_price":20,"quantity": 2,"total_price":40,"note":"if any note or leave it null"}].',
+            'payment_method' =&gt; 'cash_on_delivery',
+            'fleet_id' =&gt; 9,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/agent/order/create'
+payload = {
+    "api_id": "GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.",
+    "code": "342334.",
+    "number_of_products": 2,
+    "order_price": 40,
+    "discount": 0,
+    "deliver_fees": 10,
+    "total_price": 50,
+    "pick_up_lng": "21.24354345.",
+    "pick_up_lat": "21.24354345.",
+    "delivery_lng": "21.24354345.",
+    "delivery_lat": "22.134566566.",
+    "customer_name": "in",
+    "customer_mobile": "1234567890.",
+    "delivery_time": "2020-03-01 16:22:11.",
+    "products": "[{\"name\":\"product name\",\"one_piece_price\":20\",quantity\": 2,\"total_price\":4,\"note\":\"if any note or leave it null\"},{\"name\":\"product name\",\"one_piece_price\":20,\"quantity\": 2,\"total_price\":40,\"note\":\"if any note or leave it null\"}].",
+    "payment_method": "cash_on_delivery",
+    "fleet_id": 9
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': '{API-KEY}',
+  'Api-Version': 'v1'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/agent/order/create" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "X-Authorization: {API-KEY}" \
+    -H "Api-Version: v1" \
+    -d '{"api_id":"GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.","code":"342334.","number_of_products":2,"order_price":40,"discount":0,"deliver_fees":10,"total_price":50,"pick_up_lng":"21.24354345.","pick_up_lat":"21.24354345.","delivery_lng":"21.24354345.","delivery_lat":"22.134566566.","customer_name":"in","customer_mobile":"1234567890.","delivery_time":"2020-03-01 16:22:11.","products":"[{\"name\":\"product name\",\"one_piece_price\":20\",quantity\": 2,\"total_price\":4,\"note\":\"if any note or leave it null\"},{\"name\":\"product name\",\"one_piece_price\":20,\"quantity\": 2,\"total_price\":40,\"note\":\"if any note or leave it null\"}].","payment_method":"cash_on_delivery","fleet_id":9}'
+</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/agent/order/create</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>api_id</code></td>
+<td>string</td>
+<td>required</td>
+<td>your API ID</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>string</td>
+<td>required</td>
+<td>The code of the order to be the same on your system</td>
+</tr>
+<tr>
+<td><code>number_of_products</code></td>
+<td>integer</td>
+<td>required</td>
+<td>the number of products in this order</td>
+</tr>
+<tr>
+<td><code>order_price</code></td>
+<td>float</td>
+<td>required</td>
+<td>the price of the order products without any discounts or fees</td>
+</tr>
+<tr>
+<td><code>discount</code></td>
+<td>float</td>
+<td>optional</td>
+<td>the discount amount</td>
+</tr>
+<tr>
+<td><code>deliver_fees</code></td>
+<td>float</td>
+<td>required</td>
+<td>the delivery fees amount</td>
+</tr>
+<tr>
+<td><code>total_price</code></td>
+<td>float</td>
+<td>required</td>
+<td>the order total price after adding delivery fees and deducting the discount</td>
+</tr>
+<tr>
+<td><code>pick_up_lng</code></td>
+<td>string</td>
+<td>optional</td>
+<td>the longitude value for the pickup location</td>
+</tr>
+<tr>
+<td><code>pick_up_lat</code></td>
+<td>string</td>
+<td>optional</td>
+<td>the latitude value for the pickup location</td>
+</tr>
+<tr>
+<td><code>delivery_lng</code></td>
+<td>string</td>
+<td>required</td>
+<td>the longitude value for the delivery location</td>
+</tr>
+<tr>
+<td><code>delivery_lat</code></td>
+<td>string</td>
+<td>required</td>
+<td>the latitude value for the delivery location</td>
+</tr>
+<tr>
+<td><code>customer_name</code></td>
+<td>string</td>
+<td>optional</td>
+<td>the name of the customer needs the order Example salem:.</td>
+</tr>
+<tr>
+<td><code>customer_mobile</code></td>
+<td>string</td>
+<td>optional</td>
+<td>the mobile of the customer needs the order</td>
+</tr>
+<tr>
+<td><code>delivery_time</code></td>
+<td>dateTime</td>
+<td>required</td>
+<td>must be like</td>
+</tr>
+<tr>
+<td><code>products</code></td>
+<td>Array</td>
+<td>optional</td>
+<td>the list of products will be in this order</td>
+</tr>
+<tr>
+<td><code>payment_method</code></td>
+<td>string</td>
+<td>required</td>
+<td>the way that customer will pay with</td>
+</tr>
+<tr>
+<td><code>fleet_id</code></td>
+<td>integer</td>
+<td>optional</td>
+<td>the driver id you can get from the list of driver (this field is optional) use it if you want to sed the order assigned to driver.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_28369bbffb8a4d93dcb425c88971dc43 -->
+<!-- START_e4666a5c94c93aaaa64f9c3192d5e158 -->
+<h2>Update an Order</h2>
+<p>use this API to update an order programmatically on Pudo.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/agent/order/update"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "{API-KEY}",
+    "Api-Version": "v1",
+};
+
+let body = {
+    "api_id": "GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.",
+    "code": "342334.",
+    "number_of_products": 2,
+    "order_price": 40,
+    "discount": 0,
+    "deliver_fees": 10,
+    "total_price": 50,
+    "pick_up_lng": "21.24354345.",
+    "pick_up_lat": "21.24354345.",
+    "delivery_lng": "21.24354345.",
+    "delivery_lat": "22.134566566.",
+    "customer_name": "officiis",
+    "customer_mobile": "1234567890.",
+    "delivery_time": "2020-03-01 16:22:11.",
+    "products": "[{\"name\":\"product name\",\"one_piece_price\":20\",quantity\": 2,\"total_price\":4,\"note\":\"if any note or leave it null\"},{\"name\":\"product name\",\"one_piece_price\":20,\"quantity\": 2,\"total_price\":40,\"note\":\"if any note or leave it null\"}].",
+    "payment_method": "cash_on_delivery",
+    "fleet_id": 12
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/agent/order/update',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; '{API-KEY}',
+            'Api-Version' =&gt; 'v1',
+        ],
+        'json' =&gt; [
+            'api_id' =&gt; 'GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.',
+            'code' =&gt; '342334.',
+            'number_of_products' =&gt; 2,
+            'order_price' =&gt; 40.0,
+            'discount' =&gt; 0.0,
+            'deliver_fees' =&gt; 10.0,
+            'total_price' =&gt; 50.0,
+            'pick_up_lng' =&gt; '21.24354345.',
+            'pick_up_lat' =&gt; '21.24354345.',
+            'delivery_lng' =&gt; '21.24354345.',
+            'delivery_lat' =&gt; '22.134566566.',
+            'customer_name' =&gt; 'officiis',
+            'customer_mobile' =&gt; '1234567890.',
+            'delivery_time' =&gt; '2020-03-01 16:22:11.',
+            'products' =&gt; '[{"name":"product name","one_piece_price":20",quantity": 2,"total_price":4,"note":"if any note or leave it null"},{"name":"product name","one_piece_price":20,"quantity": 2,"total_price":40,"note":"if any note or leave it null"}].',
+            'payment_method' =&gt; 'cash_on_delivery',
+            'fleet_id' =&gt; 12,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/agent/order/update'
+payload = {
+    "api_id": "GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.",
+    "code": "342334.",
+    "number_of_products": 2,
+    "order_price": 40,
+    "discount": 0,
+    "deliver_fees": 10,
+    "total_price": 50,
+    "pick_up_lng": "21.24354345.",
+    "pick_up_lat": "21.24354345.",
+    "delivery_lng": "21.24354345.",
+    "delivery_lat": "22.134566566.",
+    "customer_name": "officiis",
+    "customer_mobile": "1234567890.",
+    "delivery_time": "2020-03-01 16:22:11.",
+    "products": "[{\"name\":\"product name\",\"one_piece_price\":20\",quantity\": 2,\"total_price\":4,\"note\":\"if any note or leave it null\"},{\"name\":\"product name\",\"one_piece_price\":20,\"quantity\": 2,\"total_price\":40,\"note\":\"if any note or leave it null\"}].",
+    "payment_method": "cash_on_delivery",
+    "fleet_id": 12
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': '{API-KEY}',
+  'Api-Version': 'v1'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/agent/order/update" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "X-Authorization: {API-KEY}" \
+    -H "Api-Version: v1" \
+    -d '{"api_id":"GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.","code":"342334.","number_of_products":2,"order_price":40,"discount":0,"deliver_fees":10,"total_price":50,"pick_up_lng":"21.24354345.","pick_up_lat":"21.24354345.","delivery_lng":"21.24354345.","delivery_lat":"22.134566566.","customer_name":"officiis","customer_mobile":"1234567890.","delivery_time":"2020-03-01 16:22:11.","products":"[{\"name\":\"product name\",\"one_piece_price\":20\",quantity\": 2,\"total_price\":4,\"note\":\"if any note or leave it null\"},{\"name\":\"product name\",\"one_piece_price\":20,\"quantity\": 2,\"total_price\":40,\"note\":\"if any note or leave it null\"}].","payment_method":"cash_on_delivery","fleet_id":12}'
+</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/agent/order/update</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>api_id</code></td>
+<td>string</td>
+<td>required</td>
+<td>your API ID</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>string</td>
+<td>required</td>
+<td>The code of the order to be the same on your system</td>
+</tr>
+<tr>
+<td><code>number_of_products</code></td>
+<td>integer</td>
+<td>optional</td>
+<td>the number of products in this order</td>
+</tr>
+<tr>
+<td><code>order_price</code></td>
+<td>float</td>
+<td>optional</td>
+<td>the price of the order products without any discounts or fees</td>
+</tr>
+<tr>
+<td><code>discount</code></td>
+<td>float</td>
+<td>optional</td>
+<td>the discount amount</td>
+</tr>
+<tr>
+<td><code>deliver_fees</code></td>
+<td>float</td>
+<td>optional</td>
+<td>the delivery fees amount</td>
+</tr>
+<tr>
+<td><code>total_price</code></td>
+<td>float</td>
+<td>optional</td>
+<td>the order total price after adding delivery fees and deducting the discount</td>
+</tr>
+<tr>
+<td><code>pick_up_lng</code></td>
+<td>string</td>
+<td>optional</td>
+<td>the longitude value for the pickup location</td>
+</tr>
+<tr>
+<td><code>pick_up_lat</code></td>
+<td>string</td>
+<td>optional</td>
+<td>the latitude value for the pickup location</td>
+</tr>
+<tr>
+<td><code>delivery_lng</code></td>
+<td>string</td>
+<td>optional</td>
+<td>the longitude value for the delivery location</td>
+</tr>
+<tr>
+<td><code>delivery_lat</code></td>
+<td>string</td>
+<td>optional</td>
+<td>the latitude value for the delivery location</td>
+</tr>
+<tr>
+<td><code>customer_name</code></td>
+<td>string</td>
+<td>optional</td>
+<td>the name of the customer needs the order Example salem:.</td>
+</tr>
+<tr>
+<td><code>customer_mobile</code></td>
+<td>string</td>
+<td>optional</td>
+<td>the mobile of the customer needs the order</td>
+</tr>
+<tr>
+<td><code>delivery_time</code></td>
+<td>dateTime</td>
+<td>optional</td>
+<td>must be like</td>
+</tr>
+<tr>
+<td><code>products</code></td>
+<td>Array</td>
+<td>optional</td>
+<td>the list of products will be in this order</td>
+</tr>
+<tr>
+<td><code>payment_method</code></td>
+<td>string</td>
+<td>required</td>
+<td>the way that customer will pay with</td>
+</tr>
+<tr>
+<td><code>fleet_id</code></td>
+<td>integer</td>
+<td>optional</td>
+<td>the driver id you can get from the list of driver (this field is optional) use it if you want to sed the order assigned to driver.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_e4666a5c94c93aaaa64f9c3192d5e158 -->
+<!-- START_bf1837e4de32a2df1467dd5c2ee33b22 -->
+<h2>Delete an Order</h2>
+<p>use this API to delete an order programmatically from Pudo.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/agent/order/delete"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "{API-KEY}",
+    "Api-Version": "v1",
+};
+
+let body = {
+    "api_id": "GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.",
+    "code": "342334."
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/agent/order/delete',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; '{API-KEY}',
+            'Api-Version' =&gt; 'v1',
+        ],
+        'json' =&gt; [
+            'api_id' =&gt; 'GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.',
+            'code' =&gt; '342334.',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/agent/order/delete'
+payload = {
+    "api_id": "GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.",
+    "code": "342334."
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': '{API-KEY}',
+  'Api-Version': 'v1'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/agent/order/delete" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "X-Authorization: {API-KEY}" \
+    -H "Api-Version: v1" \
+    -d '{"api_id":"GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.","code":"342334."}'
+</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/agent/order/delete</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>api_id</code></td>
+<td>string</td>
+<td>required</td>
+<td>your API ID</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>string</td>
+<td>required</td>
+<td>The code of the order to be the same on your system</td>
+</tr>
+</tbody>
+</table>
+<!-- END_bf1837e4de32a2df1467dd5c2ee33b22 -->
+<!-- START_ffc68bb8bfbc50343eaf4910fdaea859 -->
+<h2>Assign Order to a driver</h2>
+<p>this api to assign and order already existing on Pudo to a driver</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/agent/order/assignToDriver"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "{API-KEY}",
+    "Api-Version": "v1",
+};
+
+let body = {
+    "api_id": "GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.",
+    "code": "342334.",
+    "driver_code": "65435."
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/agent/order/assignToDriver',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; '{API-KEY}',
+            'Api-Version' =&gt; 'v1',
+        ],
+        'json' =&gt; [
+            'api_id' =&gt; 'GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.',
+            'code' =&gt; '342334.',
+            'driver_code' =&gt; '65435.',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/agent/order/assignToDriver'
+payload = {
+    "api_id": "GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.",
+    "code": "342334.",
+    "driver_code": "65435."
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': '{API-KEY}',
+  'Api-Version': 'v1'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/agent/order/assignToDriver" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "X-Authorization: {API-KEY}" \
+    -H "Api-Version: v1" \
+    -d '{"api_id":"GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.","code":"342334.","driver_code":"65435."}'
+</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/agent/order/assignToDriver</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>api_id</code></td>
+<td>string</td>
+<td>required</td>
+<td>your API ID</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>string</td>
+<td>required</td>
+<td>The code of the order to be the same on your system</td>
+</tr>
+<tr>
+<td><code>driver_code</code></td>
+<td>required</td>
+<td>optional</td>
+<td>The code of the driver</td>
+</tr>
+</tbody>
+</table>
+<!-- END_ffc68bb8bfbc50343eaf4910fdaea859 -->
+<!-- START_0813c3d3ff2cabe3c42f357cc3e7a3fa -->
+<h2>Reassign Order to another Driver</h2>
+<p>this api to reassign and order already existing on Pudo and assigned to a driver to another driver</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/agent/order/reassignToDriver"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "X-Authorization": "{API-KEY}",
+    "Api-Version": "v1",
+};
+
+let body = {
+    "api_id": "GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.",
+    "code": "342334.",
+    "driver_code": "65435."
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/agent/order/reassignToDriver',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'X-Authorization' =&gt; '{API-KEY}',
+            'Api-Version' =&gt; 'v1',
+        ],
+        'json' =&gt; [
+            'api_id' =&gt; 'GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.',
+            'code' =&gt; '342334.',
+            'driver_code' =&gt; '65435.',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/agent/order/reassignToDriver'
+payload = {
+    "api_id": "GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.",
+    "code": "342334.",
+    "driver_code": "65435."
+}
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'X-Authorization': '{API-KEY}',
+  'Api-Version': 'v1'
+}
+response = requests.request('POST', url, headers=headers, json=payload)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/agent/order/reassignToDriver" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "X-Authorization: {API-KEY}" \
+    -H "Api-Version: v1" \
+    -d '{"api_id":"GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.","code":"342334.","driver_code":"65435."}'
+</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/agent/order/reassignToDriver</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>api_id</code></td>
+<td>string</td>
+<td>required</td>
+<td>your API ID</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>string</td>
+<td>required</td>
+<td>The code of the order to be the same on your system</td>
+</tr>
+<tr>
+<td><code>driver_code</code></td>
+<td>required</td>
+<td>optional</td>
+<td>The code of the driver</td>
+</tr>
+</tbody>
+</table>
+<!-- END_0813c3d3ff2cabe3c42f357cc3e7a3fa -->
+<h1>general</h1>
+<!-- START_da022d5a285bc58b50c70f2bddf5033c -->
+<h2>api/driver/push-notification</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/push-notification"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/push-notification',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/push-notification'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/push-notification" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/push-notification</code></p>
+<!-- END_da022d5a285bc58b50c70f2bddf5033c -->
+<!-- START_6ad3a2b490b2534f6cd4674f16f8ea2d -->
+<h2>api/driver/chat/get_all_chat</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/chat/get_all_chat"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/chat/get_all_chat',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/chat/get_all_chat'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/chat/get_all_chat" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/chat/get_all_chat</code></p>
+<!-- END_6ad3a2b490b2534f6cd4674f16f8ea2d -->
+<!-- START_97c58cce2c317c996ec523725abbf0d1 -->
+<h2>api/driver/chat/get_chat/{friend_id}</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/chat/get_chat/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/chat/get_chat/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/chat/get_chat/1'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/chat/get_chat/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/chat/get_chat/{friend_id}</code></p>
+<!-- END_97c58cce2c317c996ec523725abbf0d1 -->
+<!-- START_d3373f92612feb368af54b2db73dfe90 -->
+<h2>api/driver/chat/send_chat</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/chat/send_chat"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/chat/send_chat',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/chat/send_chat'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/chat/send_chat" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/chat/send_chat</code></p>
+<!-- END_d3373f92612feb368af54b2db73dfe90 -->
+<!-- START_b307b3bc297094e25b1f54a399b9961a -->
+<h2>api/driver/get-orders</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/get-orders"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://curve-app.co/api/driver/get-orders',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/get-orders'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://curve-app.co/api/driver/get-orders" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Error Token"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/driver/get-orders</code></p>
+<!-- END_b307b3bc297094e25b1f54a399b9961a -->
+<!-- START_c2b3a6f96e2bd63307cc9aacba79d60c -->
+<h2>api/driver/device-token</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/device-token"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/device-token',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/device-token'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/device-token" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/device-token</code></p>
+<!-- END_c2b3a6f96e2bd63307cc9aacba79d60c -->
+<!-- START_84aa8a8c2908b2e53eed2fcf72d43348 -->
+<h2>api/driver/profile</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/profile"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://curve-app.co/api/driver/profile',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/profile'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://curve-app.co/api/driver/profile" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Error Token"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/driver/profile</code></p>
+<!-- END_84aa8a8c2908b2e53eed2fcf72d43348 -->
+<!-- START_df243d0fcaae3817217c20b411deca06 -->
+<h2>api/driver/profile</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/profile"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/profile',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/profile'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/profile" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/profile</code></p>
+<!-- END_df243d0fcaae3817217c20b411deca06 -->
+<!-- START_c677b34343fa014b0c5e862a3e40a8bd -->
+<h2>api/driver/upload-files</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/upload-files"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/upload-files',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/upload-files'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/upload-files" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/upload-files</code></p>
+<!-- END_c677b34343fa014b0c5e862a3e40a8bd -->
+<!-- START_3b4beb29726b7c090b8a5a5001ad7c69 -->
+<h2>api/driver/statistics</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/statistics"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://curve-app.co/api/driver/statistics',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/statistics'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://curve-app.co/api/driver/statistics" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Error Token"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/driver/statistics</code></p>
+<!-- END_3b4beb29726b7c090b8a5a5001ad7c69 -->
+<!-- START_6b20aeca4e3e5c9ce9e833e9cd5e75f1 -->
+<h2>api/driver/walletTransfer</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/walletTransfer"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/walletTransfer',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/walletTransfer'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/walletTransfer" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/walletTransfer</code></p>
+<!-- END_6b20aeca4e3e5c9ce9e833e9cd5e75f1 -->
+<!-- START_5f2cd82fd33ba64cece3d8786bd5b173 -->
+<h2>api/driver/pay</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-javascript">const url = new URL(
+    "https://curve-app.co/api/driver/pay"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer {token}",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://curve-app.co/api/driver/pay',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer {token}',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'https://curve-app.co/api/driver/pay'
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {token}'
+}
+response = requests.request('POST', url, headers=headers)
+response.json()</code></pre>
+<pre><code class="language-bash">curl -X POST \
+    "https://curve-app.co/api/driver/pay" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Authorization: Bearer {token}"</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/driver/pay</code></p>
+<!-- END_5f2cd82fd33ba64cece3d8786bd5b173 -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                                    <a href="#" data-language-name="php">php</a>
+                                    <a href="#" data-language-name="python">python</a>
+                                    <a href="#" data-language-name="bash">bash</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>

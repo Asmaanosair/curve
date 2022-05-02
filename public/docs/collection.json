@@ -1,0 +1,1169 @@
+{
+    "variables": [],
+    "info": {
+        "name": "Pudo",
+        "_postman_id": "e36cc144-c38a-405d-b68c-cf4eb93820e1",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Driver Mobile API",
+            "description": "",
+            "item": [
+                {
+                    "name": "Driver Login\nuse this api to login a driver by mobile and password\nwill generate jwt token you can use it in Authrization header with prefixed with Bearer",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/login",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"mobile\": \"1234567890\",\n    \"password\": \"123456\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Driver register\nuse this api to register a driver by mobile and password",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/register",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"mobile\": \"1234567890\",\n    \"email\": \"example@example.com\",\n    \"password\": \"123456\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Companies\nuse this api to git all Companies",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/companies",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Driver verification\nuse this api to register a driver by mobile and password",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/verification",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": \"1\",\n    \"code\": \"123456\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "new version",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/new-orders",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Orders\nthis api will return the list of orders in process",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/orders",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get an order details\nthis api will return the object of order details with products list\nsend order_id as id parameter",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/order\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "molestiae",
+                                    "description": "int required"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Accept an order\nuse this api to make a driver accept an order\nsend order_id as id parameter",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/acceptOrder\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "at",
+                                    "description": "int required"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Reject an order\nuse this api to make a driver accept an Reject\nsend order_id as id parameter",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/rejectOrder\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "dolorum",
+                                    "description": "int required"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Change order status\nuse this api to Change an order status\nsend order_id as id parameter",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/changeStatus\/:id",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "aut",
+                                    "description": "int required"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "online status\nuse this api to refresh Auth token*",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/onlineStatus",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"status\": \"1 | 0.\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "OrderHistory\nthis api will return the list of orders finished its process",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/ordersHistory",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Refresh Token\nuse this api to refresh Auth token*",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/refreshToken",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Install Notification Device",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/installNoteDevice",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "location now",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/locationNow",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Wallet",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/wallet",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Wallet transfer",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/walletPay",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"mobile\": \"05452343254\",\n    \"amount\": 20\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Integration API",
+            "description": "",
+            "item": [
+                {
+                    "name": "Create an Order\n use this API to send an order to Pudo control panel",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/agent\/order\/create",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "{API-KEY}"
+                            },
+                            {
+                                "key": "Api-Version",
+                                "value": "v1"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"api_id\": \"GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.\",\n    \"code\": \"342334.\",\n    \"number_of_products\": 2,\n    \"order_price\": 40,\n    \"discount\": 0,\n    \"deliver_fees\": 10,\n    \"total_price\": 50,\n    \"pick_up_lng\": \"21.24354345.\",\n    \"pick_up_lat\": \"21.24354345.\",\n    \"delivery_lng\": \"21.24354345.\",\n    \"delivery_lat\": \"22.134566566.\",\n    \"customer_name\": \"in\",\n    \"customer_mobile\": \"1234567890.\",\n    \"delivery_time\": \"2020-03-01 16:22:11.\",\n    \"products\": \"[{\\\"name\\\":\\\"product name\\\",\\\"one_piece_price\\\":20\\\",quantity\\\": 2,\\\"total_price\\\":4,\\\"note\\\":\\\"if any note or leave it null\\\"},{\\\"name\\\":\\\"product name\\\",\\\"one_piece_price\\\":20,\\\"quantity\\\": 2,\\\"total_price\\\":40,\\\"note\\\":\\\"if any note or leave it null\\\"}].\",\n    \"payment_method\": \"cash_on_delivery\",\n    \"fleet_id\": 9\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update an Order\n use this API to update an order programmatically on Pudo.",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/agent\/order\/update",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "{API-KEY}"
+                            },
+                            {
+                                "key": "Api-Version",
+                                "value": "v1"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"api_id\": \"GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.\",\n    \"code\": \"342334.\",\n    \"number_of_products\": 2,\n    \"order_price\": 40,\n    \"discount\": 0,\n    \"deliver_fees\": 10,\n    \"total_price\": 50,\n    \"pick_up_lng\": \"21.24354345.\",\n    \"pick_up_lat\": \"21.24354345.\",\n    \"delivery_lng\": \"21.24354345.\",\n    \"delivery_lat\": \"22.134566566.\",\n    \"customer_name\": \"officiis\",\n    \"customer_mobile\": \"1234567890.\",\n    \"delivery_time\": \"2020-03-01 16:22:11.\",\n    \"products\": \"[{\\\"name\\\":\\\"product name\\\",\\\"one_piece_price\\\":20\\\",quantity\\\": 2,\\\"total_price\\\":4,\\\"note\\\":\\\"if any note or leave it null\\\"},{\\\"name\\\":\\\"product name\\\",\\\"one_piece_price\\\":20,\\\"quantity\\\": 2,\\\"total_price\\\":40,\\\"note\\\":\\\"if any note or leave it null\\\"}].\",\n    \"payment_method\": \"cash_on_delivery\",\n    \"fleet_id\": 12\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete an Order\n use this API to delete an order programmatically from Pudo.",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/agent\/order\/delete",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "{API-KEY}"
+                            },
+                            {
+                                "key": "Api-Version",
+                                "value": "v1"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"api_id\": \"GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.\",\n    \"code\": \"342334.\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Assign Order to a driver\n this api to assign and order already existing on Pudo to a driver",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/agent\/order\/assignToDriver",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "{API-KEY}"
+                            },
+                            {
+                                "key": "Api-Version",
+                                "value": "v1"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"api_id\": \"GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.\",\n    \"code\": \"342334.\",\n    \"driver_code\": \"65435.\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Reassign Order to another Driver\n this api to reassign and order already existing on Pudo and assigned to a driver to another driver",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/agent\/order\/reassignToDriver",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "X-Authorization",
+                                "value": "{API-KEY}"
+                            },
+                            {
+                                "key": "Api-Version",
+                                "value": "v1"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"api_id\": \"GZUdkhoBCB28zVZRdljnwMUs67S2kNz821r4yKX3QzUWLnvWEM8tIlulfU4UMkHY.\",\n    \"code\": \"342334.\",\n    \"driver_code\": \"65435.\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "general",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/driver\/push-notification",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/push-notification",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/driver\/chat\/get_all_chat",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/chat\/get_all_chat",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/driver\/chat\/get_chat\/{friend_id}",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/chat\/get_chat\/:friend_id",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/driver\/chat\/send_chat",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/chat\/send_chat",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/driver\/get-orders",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/get-orders",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/driver\/device-token",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/device-token",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/driver\/profile",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/profile",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/driver\/profile",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/profile",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/driver\/upload-files",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/upload-files",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/driver\/statistics",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/statistics",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/driver\/walletTransfer",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/walletTransfer",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "api\/driver\/pay",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "curve-app.co",
+                            "path": "api\/driver\/pay",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {token}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        }
+    ]
+}

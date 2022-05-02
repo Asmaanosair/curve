@@ -1,0 +1,14 @@
+
+
+## S3 Data
+
+
+
+
+
+
+## Pusher Data
+    PUSHER_APP_ID=1194001
+    PUSHER_APP_KEY=242b832874ffd57a4325
+    PUSHER_APP_SECRET=636aedab6d293da6cf91
+    PUSHER_APP_CLUSTER=eu
