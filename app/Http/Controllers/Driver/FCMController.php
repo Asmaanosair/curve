@@ -35,7 +35,7 @@ class FCMController extends Controller
         );
         $fields = json_encode($fields);
         $headers = array(
-            'Authorization: key=' . "AAAA2i3yv1g:APA91bFVkK2WwuvBX42t0eHJXtdi16xuN2HYec3jBQD3dO0PwPqYy3rLOu12pAHTmjWBgND1ZA9uM5omS2s2ncy6rRUAZtnpIP_AB1JHgD_r9JoHzOuiYIMsqgGsYvM68rk9dYlQ9wpp",
+            'Authorization: key=' . "",
             'Content-Type: application/json'
         );
         $ch = curl_init();
