@@ -70,7 +70,7 @@ class OrderController extends Controller
             return response()->json(['message' => $validator->errors()], 500);
         }
         $inputs = $request->all();
-        $result = Http::get("https://maps.googleapis.com/maps/api/distancematrix/json?origins=heading=90:" . $request->pick_up_lat . "," . $request->pick_up_lng . "&destinations=" . $request->delivery_lat . "," . $request->delivery_lng . "&key=AIzaSyAJhqpSuRhbNnIMU1qCnhBKgiYuuS5yypg")->json();
+        $result = Http::get("https://maps.googleapis.com/maps/api/distancematrix/json?origins=heading=90:" . $request->pick_up_lat . "," . $request->pick_up_lng . "&destinations=" . $request->delivery_lat . "," . $request->delivery_lng . "&key=")->json();
 
         if ($result["status"] == "OK" && $result["rows"][0]["elements"][0]["status"]=='OK' ) {
             $kilos_count = $result["rows"][0]["elements"][0]["distance"]["value"] / 1000;
